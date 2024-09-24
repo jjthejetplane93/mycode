@@ -20,12 +20,12 @@ def main():
         got_dj = gotresp.json()
         pprint.pprint(got_dj)
 
-        if got_dj["allegiances"]:
+        if got_dj.get("allegiances"):
             print("this character belongs to the following hous(es)")
             for house in got_dj["allegiances"] :
                 print(f'\t{requests.get(house).json()["name"]}')
 
-        if got_dj["books"]:
+        if got_dj.get("books"):
             print("this character appears in the following book(s)")
             for book in got_dj["books"]:
                 print(f'\t{requests.get(book).json()["name"]}')
