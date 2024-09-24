@@ -34,9 +34,8 @@ def showStatus():
 inventory = []
 
 # a dictionary linking a room to other rooms
-with open('rooms.conf') as f:
-    data = f.read()
-    rooms = json.loads(data)
+with open('rooms.conf', 'r') as f:
+    rooms = json.load(f)
 
 # start the player in the Hall
 currentRoom = 'Hall'
